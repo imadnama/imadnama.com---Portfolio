@@ -2,10 +2,10 @@ import { HeroSection } from './sections/HeroSection';
 import { MarqueeSection } from './sections/MarqueeSection';
 import { AboutSection } from './sections/AboutSection';
 import { WhatIDoSection } from './sections/WhatIDoSection';
+import { ProjectsSection } from './sections/ProjectsSection';
 
 /**
- * Root of the portfolio. Sections are composed here in page order and are
- * added incrementally in the stages that follow.
+ * Root of the portfolio. Sections are composed here in page order.
  */
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <MarqueeSection />
       <AboutSection />
       <WhatIDoSection />
-      {/* ProjectsSection */}
+      <ProjectsSection />
     </main>
   );
 }
