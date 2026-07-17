@@ -2,11 +2,11 @@ import { FadeIn } from '../components/FadeIn';
 import { AnimatedText } from '../components/AnimatedText';
 import { ContactButton } from '../components/ContactButton';
 
-// TODO: replace with Imad's real bio from his CV.
 const bio =
-  'I am a software engineering student who loves turning ideas into clean, ' +
-  'reliable software. I focus on building thoughtful web applications with a ' +
-  'strong eye for detail and user experience. Let us build something great ' +
+  "I'm a software engineering student on the cybersecurity track, driven by a " +
+  'security mindset and a passion for building scalable, secure full-stack ' +
+  'software. I use AI every day for agentic coding and LLM-augmented ' +
+  "development, and I pick up new tools fast. Let's build something great " +
   'together!';
 
 // Decorative dev glyphs anchored in each corner. Positions and entrance

@@ -1,25 +1,26 @@
 /**
  * Technologies shown in the marquee (also the accessible "skills" list).
- * Edit this list to match your real stack — the marquee and the screen-reader
- * fallback both derive from it automatically.
+ * The marquee and the screen-reader fallback both derive from this list.
  */
 export const technologies: string[] = [
-  'TypeScript',
-  'React',
-  'Next.js',
-  'Node.js',
-  'Express',
   'Python',
   'Java',
-  'PostgreSQL',
-  'MongoDB',
-  'Tailwind CSS',
-  'Docker',
+  'C',
+  'C++',
+  'MySQL',
+  'SQLite',
   'Git',
-  'REST APIs',
-  'JavaScript',
-  'HTML5',
-  'CSS3',
-  'Linux',
-  'Figma',
+  'GitHub',
+  'Docker',
+  'Kubernetes',
+  'Postman',
+  'Jira',
+  'Bash',
+  'Claude Code',
+  'Cursor',
+  'Codex',
+  'MCP',
+  'Kali Linux',
+  'Wireshark',
+  'Nmap',
 ];
