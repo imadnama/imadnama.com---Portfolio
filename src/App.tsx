@@ -1,5 +1,6 @@
 import { HeroSection } from './sections/HeroSection';
 import { MarqueeSection } from './sections/MarqueeSection';
+import { AboutSection } from './sections/AboutSection';
 
 /**
  * Root of the portfolio. Sections are composed here in page order and are
@@ -10,7 +11,8 @@ function App() {
     <main className="min-h-screen bg-[#0C0C0C]" style={{ overflowX: 'clip' }}>
       <HeroSection />
       <MarqueeSection />
-      {/* AboutSection, ServicesSection, ProjectsSection */}
+      <AboutSection />
+      {/* ServicesSection, ProjectsSection */}
     </main>
   );
 }
