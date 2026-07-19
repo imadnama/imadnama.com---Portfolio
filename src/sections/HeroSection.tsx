@@ -10,12 +10,18 @@ const navLinks = [
 
 /**
  * Landing hero: navigation, oversized name heading, an intro line + CTA, and a
- * portrait. Fills the viewport and anchors the bottom bar to the base of the
- * screen.
+ * portrait.
+ *
+ * On larger screens the portrait is absolutely anchored to the bottom and the
+ * content spreads to fill the viewport. On small screens it sits in the normal
+ * flow directly beneath the heading, so there is no large gap between them.
  */
 export function HeroSection() {
   return (
-    <section id="home" className="relative flex h-screen flex-col justify-between overflow-x-clip">
+    <section
+      id="home"
+      className="relative flex min-h-screen flex-col justify-start overflow-x-clip sm:h-screen sm:justify-between"
+    >
       <div>
         {/* Navigation */}
         <FadeIn
@@ -47,24 +53,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Intro line + call to action */}
-      <div className="flex items-end justify-between px-6 pb-7 sm:pb-8 md:px-10 md:pb-10">
-        <FadeIn
-          as="p"
-          delay={0.35}
-          y={20}
-          className="max-w-[160px] font-light uppercase leading-snug tracking-wide text-[#D7E2EA] sm:max-w-[220px] md:max-w-[260px]"
-          style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
-        >
-          a software engineering student driven by crafting clean, reliable, and memorable software
-        </FadeIn>
-        <FadeIn delay={0.5} y={20}>
-          <ContactButton />
-        </FadeIn>
-      </div>
-
-      {/* Portrait, centered over the hero */}
-      <div className="absolute left-1/2 top-1/2 z-10 w-[280px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[360px] sm:translate-y-0 md:w-[440px] lg:w-[520px]">
+      {/* Portrait: in flow beneath the heading on mobile, absolutely anchored to
+          the bottom from `sm` up. */}
+      <div className="relative z-10 mx-auto mt-6 w-[280px] sm:absolute sm:bottom-0 sm:left-1/2 sm:mx-0 sm:mt-0 sm:w-[360px] sm:-translate-x-1/2 md:w-[440px] lg:w-[520px]">
         {/* Soft spotlight behind the portrait so the subject reads against the
             near-black background. */}
         <div
@@ -80,7 +71,7 @@ export function HeroSection() {
             src="/portrait.png"
             alt="Portrait of Imad Nama"
             draggable={false}
-            className="w-full select-none"
+            className="w-full -translate-y-8 select-none sm:translate-y-0"
             style={{
               // Fade the lower edge so the cropped photo blends into the
               // background instead of ending in a hard horizontal line.
@@ -88,6 +79,22 @@ export function HeroSection() {
               WebkitMaskImage: 'linear-gradient(to bottom, #000 80%, transparent 100%)',
             }}
           />
+        </FadeIn>
+      </div>
+
+      {/* Intro line + call to action */}
+      <div className="flex items-end justify-between px-6 pb-7 pt-8 sm:pb-8 sm:pt-0 md:px-10 md:pb-10">
+        <FadeIn
+          as="p"
+          delay={0.35}
+          y={20}
+          className="max-w-[160px] font-light uppercase leading-snug tracking-wide text-[#D7E2EA] sm:max-w-[220px] md:max-w-[260px]"
+          style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
+        >
+          a software engineering student driven by crafting clean, reliable, and memorable software
+        </FadeIn>
+        <FadeIn delay={0.5} y={20}>
+          <ContactButton />
         </FadeIn>
       </div>
     </section>
