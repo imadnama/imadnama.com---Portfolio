@@ -3,7 +3,7 @@ export type Capability = {
   description: string;
 };
 
-/** The "What I Do" capability areas, grounded in real experience. */
+/** The "My Focus" areas, grounded in real experience. */
 export const capabilities: Capability[] = [
   {
     name: 'Full-Stack Web Development',
@@ -11,13 +11,6 @@ export const capabilities: Capability[] = [
       'End-to-end web applications structured with clean, MVC-based ' +
       'architecture — from the interface down to the database — and ' +
       'engineered to stay reliable under real, live data.',
-  },
-  {
-    name: 'Backend & Databases',
-    description:
-      'Dependable server-side logic and relational data modelling with MySQL ' +
-      'and SQLite, writing SQL for retrieval and reporting with a constant ' +
-      'eye on data integrity.',
   },
   {
     name: 'Security-Minded Engineering',
@@ -32,11 +25,5 @@ export const capabilities: Capability[] = [
       'Building faster with AI as a daily driver — agentic coding workflows, ' +
       'LLM-augmented development, and MCP — without ever trading away code ' +
       'quality.',
-  },
-  {
-    name: 'Desktop Applications',
-    description:
-      'Native and cross-platform desktop apps in Python and C# / .NET, from ' +
-      'low-level system instrumentation to responsive, real-time dashboards.',
   },
 ];
