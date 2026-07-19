@@ -11,7 +11,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col justify-start overflow-x-clip sm:h-screen sm:justify-between"
+      className="relative flex flex-col overflow-x-clip sm:h-screen sm:justify-between"
     >
       <div className="pt-6 md:pt-8">
         {/* Name heading */}
