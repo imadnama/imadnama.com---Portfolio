@@ -59,10 +59,10 @@ function ProjectCard({ index, project, progress, range, targetScale }: ProjectCa
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div className="sticky top-24 flex h-[80vh] items-start justify-center md:top-32">
+    <div className="sticky top-0 flex h-[calc(100svh-7rem)] items-center justify-center">
       <motion.article
-        style={{ scale, y: index * 28 }}
-        className="mx-auto w-full max-w-5xl origin-top rounded-[40px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-6 sm:rounded-[50px] sm:p-8 md:rounded-[60px] md:p-10"
+        style={{ scale, y: index * 12 }}
+        className="mx-auto w-full max-w-5xl origin-top rounded-[40px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:rounded-[50px] sm:p-8 md:rounded-[60px] md:p-10"
       >
         {/* Header: number, category, name, and the live link */}
         <div className="flex flex-wrap items-start justify-between gap-4">
@@ -89,7 +89,7 @@ function ProjectCard({ index, project, progress, range, targetScale }: ProjectCa
         </div>
 
         {/* Highlights */}
-        <ul className="mt-6 max-w-3xl space-y-3 sm:mt-8">
+        <ul className="mt-5 max-w-3xl space-y-2.5 sm:mt-8 sm:space-y-3">
           {project.description.map((point) => (
             <li
               key={point}
@@ -106,7 +106,7 @@ function ProjectCard({ index, project, progress, range, targetScale }: ProjectCa
         </ul>
 
         {/* Technology stack */}
-        <div className="mt-6 flex flex-wrap gap-2 sm:mt-8">
+        <div className="mt-5 flex flex-wrap gap-2 sm:mt-8">
           {project.stack.map((tech) => (
             <span
               key={tech}
