@@ -14,8 +14,8 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: 'Home', href: '#home', icon: Home, sectionId: 'home' },
-  { label: 'About', href: '#about', icon: User, sectionId: 'about' },
   { label: 'Skills', href: '#skills', icon: Code2, sectionId: 'skills' },
+  { label: 'About', href: '#about', icon: User, sectionId: 'about' },
   { label: 'Projects', href: '#projects', icon: FolderGit2, sectionId: 'projects' },
   { label: 'Contact', href: `mailto:${CONTACT_EMAIL}`, icon: Mail },
 ];
