@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Home, User, Code2, FolderGit2, Mail } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { motion, useAnimate } from 'framer-motion';
-import { CONTACT_EMAIL } from './ContactButton';
+import { CONTACT_EMAIL } from '../data/social';
 
 type NavItem = {
   label: string;

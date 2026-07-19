@@ -1,5 +1,4 @@
 import { FadeIn } from '../components/FadeIn';
-import { ContactButton } from '../components/ContactButton';
 
 /**
  * Landing hero: an oversized name heading, an intro line + CTA, and a portrait.
@@ -57,8 +56,8 @@ export function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Intro line + call to action */}
-      <div className="flex items-end justify-between px-6 pb-7 pt-8 sm:pb-8 sm:pt-0 md:px-10 md:pb-10">
+      {/* Intro line */}
+      <div className="flex items-end px-6 pb-7 pt-8 sm:pb-8 sm:pt-0 md:px-10 md:pb-10">
         <FadeIn
           as="p"
           delay={0.35}
@@ -67,9 +66,6 @@ export function HeroSection() {
           style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
         >
           a software engineering student driven by crafting clean, reliable, and memorable software
-        </FadeIn>
-        <FadeIn delay={0.5} y={20}>
-          <ContactButton />
         </FadeIn>
       </div>
     </section>

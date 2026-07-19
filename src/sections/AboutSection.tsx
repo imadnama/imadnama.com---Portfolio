@@ -1,6 +1,6 @@
 import { FadeIn } from '../components/FadeIn';
 import { AnimatedText } from '../components/AnimatedText';
-import { ContactButton } from '../components/ContactButton';
+import { SocialButtons } from '../components/SocialButtons';
 
 const bio =
   "I'm a software engineering student on the cybersecurity track, driven by a " +
@@ -82,7 +82,7 @@ export function AboutSection() {
           />
         </div>
 
-        <ContactButton />
+        <SocialButtons />
       </div>
     </section>
   );
