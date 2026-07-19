@@ -71,7 +71,7 @@ export function HeroSection() {
             src="/portrait.png"
             alt="Portrait of Imad Nama"
             draggable={false}
-            className="w-full select-none"
+            className="w-full -translate-y-8 select-none sm:translate-y-0"
             style={{
               // Fade the lower edge so the cropped photo blends into the
               // background instead of ending in a hard horizontal line.
