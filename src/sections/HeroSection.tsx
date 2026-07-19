@@ -42,7 +42,7 @@ export function HeroSection() {
         />
         <FadeIn delay={0.6} y={30} className="relative z-10">
           <img
-            src="/portrait.png"
+            src="/portrait.webp"
             alt="Portrait of Imad Nama"
             draggable={false}
             className="w-full -translate-y-8 select-none sm:translate-y-0"
