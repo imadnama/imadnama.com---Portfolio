@@ -6,8 +6,8 @@ typed React application with a focus on clean structure and accessibility.
 
 ## Features
 
-- **Hero** with an oversized gradient name heading and a cursor-reactive
-  ("magnetic") portrait.
+- **Hero** with an oversized gradient name heading and a portrait framed by a
+  soft spotlight backdrop.
 - **Tech-stack marquee** — two rows that scroll in opposite directions with the
   page, backed by an accessible skills list for screen readers.
 - **About** section with a character-by-character scroll reveal and decorative

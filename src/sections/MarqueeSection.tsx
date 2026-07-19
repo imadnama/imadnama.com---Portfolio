@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import { technologies } from '../data/technologies';
 
 // Split the stack across two rows that scroll in opposite directions.
@@ -6,37 +5,18 @@ const midpoint = Math.ceil(technologies.length / 2);
 const rowOne = technologies.slice(0, midpoint);
 const rowTwo = technologies.slice(midpoint);
 
-// Tripled so each row has enough content to translate without exposing an edge.
-const triple = (items: string[]) => [...items, ...items, ...items];
+// Doubled so a -50% translate loops seamlessly (both halves are identical).
+const double = (items: string[]) => [...items, ...items];
 
 /**
- * Scroll-driven tech-stack marquee: two rows slide in opposite directions as
- * the page scrolls. The moving rows are decorative (aria-hidden); the real
- * skills list is exposed to assistive tech via a visually hidden list.
+ * Tech-stack marquee: two rows that continuously auto-scroll in opposite
+ * directions, so every skill passes into view on any device. The moving rows
+ * are decorative (aria-hidden); the real skills list is exposed to assistive
+ * tech via a visually hidden list, and the animation respects reduced motion.
  */
 export function MarqueeSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      setOffset((window.scrollY - sectionTop + window.innerHeight) * 0.3);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="overflow-x-clip bg-[#0C0C0C] pb-10 pt-24 sm:pt-32 md:pt-40"
-    >
+    <section id="skills" className="overflow-x-clip bg-[#0C0C0C] pb-10 pt-8 sm:pt-10 md:pt-14">
       {/* Shared gradient for the chip spark icons. */}
       <svg width="0" height="0" className="absolute" aria-hidden="true">
         <defs>
@@ -56,8 +36,8 @@ export function MarqueeSection() {
       </ul>
 
       <div className="flex flex-col gap-3">
-        <MarqueeRow items={triple(rowOne)} translateX={offset - 200} />
-        <MarqueeRow items={triple(rowTwo)} translateX={-(offset - 200)} />
+        <MarqueeRow items={double(rowOne)} direction="left" />
+        <MarqueeRow items={double(rowTwo)} direction="right" />
       </div>
     </section>
   );
@@ -65,15 +45,16 @@ export function MarqueeSection() {
 
 type MarqueeRowProps = {
   items: string[];
-  translateX: number;
+  direction: 'left' | 'right';
 };
 
-function MarqueeRow({ items, translateX }: MarqueeRowProps) {
+function MarqueeRow({ items, direction }: MarqueeRowProps) {
+  const animation = direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right';
+
   return (
     <div
       aria-hidden="true"
-      className="flex w-max gap-3"
-      style={{ transform: `translateX(${translateX}px)`, willChange: 'transform' }}
+      className={`flex w-max will-change-transform ${animation} motion-reduce:animate-none`}
     >
       {items.map((tech, index) => (
         <TechChip key={`${tech}-${index}`} name={tech} />
@@ -84,14 +65,14 @@ function MarqueeRow({ items, translateX }: MarqueeRowProps) {
 
 function TechChip({ name }: { name: string }) {
   return (
-    <span className="inline-flex items-center gap-4 whitespace-nowrap rounded-2xl border border-white/10 bg-white/[0.02] px-8 py-5">
-      <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 md:h-6 md:w-6">
+    <span className="mr-2 inline-flex items-center gap-2 whitespace-nowrap rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 sm:mr-3 sm:gap-3 sm:rounded-2xl sm:px-6 sm:py-4 md:gap-4 md:px-8 md:py-5">
+      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4 md:h-5 md:w-5">
         <path
           d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"
           fill="url(#marquee-spark)"
         />
       </svg>
-      <span className="text-xl font-semibold uppercase tracking-wide text-[#D7E2EA] md:text-2xl">
+      <span className="text-sm font-semibold uppercase tracking-wide text-[#D7E2EA] sm:text-base md:text-xl">
         {name}
       </span>
     </span>

@@ -1,5 +1,4 @@
 import { FadeIn } from '../components/FadeIn';
-import { Magnet } from '../components/Magnet';
 import { ContactButton, CONTACT_EMAIL } from '../components/ContactButton';
 
 const navLinks = [
@@ -11,8 +10,8 @@ const navLinks = [
 
 /**
  * Landing hero: navigation, oversized name heading, an intro line + CTA, and a
- * cursor-reactive portrait. Fills the viewport and anchors the bottom bar to
- * the base of the screen.
+ * portrait. Fills the viewport and anchors the bottom bar to the base of the
+ * screen.
  */
 export function HeroSection() {
   return (
@@ -64,22 +63,31 @@ export function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Cursor-reactive portrait, centered over the hero */}
+      {/* Portrait, centered over the hero */}
       <div className="absolute left-1/2 top-1/2 z-10 w-[280px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[360px] sm:translate-y-0 md:w-[440px] lg:w-[520px]">
-        <FadeIn delay={0.6} y={30}>
-          <Magnet
-            padding={150}
-            strength={3}
-            activeTransition="transform 0.3s ease-out"
-            inactiveTransition="transform 0.6s ease-in-out"
-          >
-            <img
-              src="/portrait.svg"
-              alt="Portrait of Imad Nama"
-              draggable={false}
-              className="w-full select-none"
-            />
-          </Magnet>
+        {/* Soft spotlight behind the portrait so the subject reads against the
+            near-black background. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-[6%] aspect-square w-[88%] -translate-x-1/2 rounded-full"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(140,150,165,0.6) 0%, rgba(100,110,125,0.3) 42%, rgba(12,12,12,0) 70%)',
+          }}
+        />
+        <FadeIn delay={0.6} y={30} className="relative z-10">
+          <img
+            src="/portrait.png"
+            alt="Portrait of Imad Nama"
+            draggable={false}
+            className="w-full select-none"
+            style={{
+              // Fade the lower edge so the cropped photo blends into the
+              // background instead of ending in a hard horizontal line.
+              maskImage: 'linear-gradient(to bottom, #000 80%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, #000 80%, transparent 100%)',
+            }}
+          />
         </FadeIn>
       </div>
     </section>

@@ -15,7 +15,7 @@ export function WhatIDoSection() {
         className="mb-16 text-center font-black uppercase leading-none text-[#0C0C0C] sm:mb-20 md:mb-28"
         style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
       >
-        What I Do
+        What I&apos;m Learning
       </h2>
 
       <div className="mx-auto max-w-5xl">
