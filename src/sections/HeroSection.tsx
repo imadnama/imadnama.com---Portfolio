@@ -15,7 +15,7 @@ const navLinks = [
  */
 export function HeroSection() {
   return (
-    <section className="relative flex h-screen flex-col justify-between overflow-x-clip">
+    <section id="home" className="relative flex h-screen flex-col justify-between overflow-x-clip">
       <div>
         {/* Navigation */}
         <FadeIn
