@@ -1,16 +1,8 @@
 import { FadeIn } from '../components/FadeIn';
-import { ContactButton, CONTACT_EMAIL } from '../components/ContactButton';
-
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: `mailto:${CONTACT_EMAIL}` },
-];
+import { ContactButton } from '../components/ContactButton';
 
 /**
- * Landing hero: navigation, oversized name heading, an intro line + CTA, and a
- * portrait.
+ * Landing hero: an oversized name heading, an intro line + CTA, and a portrait.
  *
  * On larger screens the portrait is absolutely anchored to the bottom and the
  * content spreads to fill the viewport. On small screens it sits in the normal
@@ -22,24 +14,7 @@ export function HeroSection() {
       id="home"
       className="relative flex min-h-screen flex-col justify-start overflow-x-clip sm:h-screen sm:justify-between"
     >
-      <div>
-        {/* Navigation */}
-        <FadeIn
-          as="nav"
-          y={-20}
-          className="flex w-full items-center justify-between px-6 pt-6 md:px-10 md:pt-8"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 md:text-lg lg:text-[1.4rem]"
-            >
-              {link.label}
-            </a>
-          ))}
-        </FadeIn>
-
+      <div className="pt-6 md:pt-8">
         {/* Name heading */}
         <div className="overflow-hidden px-6 md:px-10">
           <FadeIn
